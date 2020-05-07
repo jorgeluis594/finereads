@@ -1,0 +1,96 @@
+html {
+    font-size: 10px;
+    background-color: #fffaf0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.search {
+    width: 80%;
+    margin: 7rem auto 0 auto;
+    max-width: 102rem;
+}
+
+.search-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
+.search-form {
+    display: flex;
+    width: 40%;
+    max-width: 46rem;
+    min-width: 30rem;
+    margin: 2.2rem auto;
+    flex-wrap: wrap;
+}
+
+.search-book {
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-weight: 600;
+    width: 90%;
+    height: 4rem;
+    padding: 0 1rem;
+    box-shadow: 5px 7px 15px #888888;
+    border: none;
+}
+
+.search-button {
+    width: 10%;
+    height: 4rem;
+    border: none;
+    background-color: #F6AD55;
+    box-shadow: 5px 7px 15px #888888;
+    color: black;
+}
+
+.container-books {
+    display: grid;
+    margin: 4rem auto;
+    grid-template-columns: repeat(4, 20rem);
+    grid-auto-rows: 32rem;
+    column-gap: 1.2rem;
+    row-gap: 4rem;
+    justify-content: center;
+}
+
+.book {
+    padding: 1.6rem 2.5rem;
+    background-color: #D8D8D8;
+    text-align: center;
+}
+
+.book-portada {
+    width: 100%;
+    height: 23rem;
+}
+
+.book-img {
+    width: 100%;
+}
+
+.book-buttom {
+    background: #38A169;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    padding: 0.7rem 1.5rem;
+    display: inline-block;
+}
+
+.book-read {
+    font-size: 12px;
+    color: #2B6CB0;
+    margin-top: 1rem;
+    display: inline-block;
+}
