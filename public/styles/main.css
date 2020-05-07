@@ -1,7 +1,9 @@
 @import "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400&display=swap";
 @import "landing.css";
+@import "footer.css";
 
 body {
     font-family: 'Roboto Slab', serif;
     margin: 0;
+
 }
