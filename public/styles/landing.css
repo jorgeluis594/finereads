@@ -1,0 +1,34 @@
+.landing-hero {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.landing-hero-img {
+    width: 50vw;
+}
+
+.landing-hero-detail {
+    width: 50vw;
+    text-align: center;
+    align-self: center;
+}
+
+.landing-title {
+    font-size: 28px;
+    line-height: 37px;
+    font-weight: 400;
+    margin: 12px 0;
+}
+
+.landing-title-light {
+    font-weight: 100;
+}
+
+.landing-btn {
+    box-sizing: content-box;
+    text-decoration: none;
+    background: #F6AD55;
+    color: #1A202C;
+    padding: 8px 14px;
+}
