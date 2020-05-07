@@ -8,7 +8,10 @@ item_api = api_request['items'][0]
 
 get '/edit-book/' do
   data = item_api['volumeInfo']
-  @img_link = data['imageLinks']['thumbnail']
+  img_link = data['imageLinks']['thumbnail']
+  default_img = 'https://www.esimob.com/user/images/esimob_pic_default.jpg'
+  img_link.nil? ? img_link=default_img : img_link
+  @img_link = img_link
   @book_title = data['title']
   @book_author = data['authors'].join(', ') + '.'
   @book_note = 'asdasdasd'
