@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
+
 get '/' do
   @title = 'asd'
   erb :landing, layout: :layout
