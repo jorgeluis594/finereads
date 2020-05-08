@@ -1,0 +1,87 @@
+@import "https://fonts.googleapis.com/css2?family=Nunito&display=swap";
+
+.edit-book {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-edit-img {
+    align-self: flex-start;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.book-title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.book-author {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.book-reading-status, .book-reading-notes {
+    margin-top: 12px;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.book-reading-notes {
+    display: block;
+}
+
+#edit-book-form {
+    margin: 0;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+}
+
+.reading-status-opt {
+    height: 40px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    background: #EDF2F7;
+    border: none;
+}
+
+.my-book-notes {
+    width: 100%;
+    margin-bottom: 9px;
+    font-size: 16px;
+    line-height: 22px;
+    background: #FFFFFF;
+    border: 1px solid #718096;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    resize: none;
+}
+
+.save-edit-book {
+    padding: 8px 14px;
+    background: #9AE6B4;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    margin-right: 0;
+}
+
+.btn-alignment {
+    text-align: right;
+}
+
+
+
+
+
+
+
+

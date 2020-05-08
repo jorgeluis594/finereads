@@ -1,0 +1,23 @@
+<div class="edit-book">
+  <img class="book-edit-img" src="<%= @img_link %>">
+  <div class="book-info">
+    <h1 class="book-title"><%= @book_title %></h1>
+    <p class="book-author">by <%= @book_author %></p>
+    <p class="book-reading-status">reading status</p>
+    <form method="POST" name="edit_book_form" id="edit-book-form">
+      <select class="reading-status-opt" name="book_status">
+        <option value="READ">Read</option>
+        <option value="READING" selected>Reading</option>
+        <option value="WANT">Want to read</option>
+      </select>
+      <label>
+        <span class="book-reading-notes">notes</span>
+        <textarea class="my-book-notes" name="book_notes" rows="5"><%= @book_note %></textarea>
+      </label>
+      <br>
+      <div class="btn-alignment">
+        <button type="submit" class="save-edit-book">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
