@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+}
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
+.content_container {
+  width: 43.75%;
+  margin-left: 14.44%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 71px;
+}
+.content-book-details {
+  width: 455px;
+}
+
+.book_cover_pages {
+  width: 24.28%;
+  height: 230px;
+}
+
+.details_book_title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  margin-bottom: 0;
+}
+
+.details_book_author {
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #4A5568;
+  margin-top: 0px;
+}
+
+.shop_book_btn {
+  width: 10%;
+  text-decoration: none;
+  background-color: #9ae6b4;
+  padding: 8px 14px;
+  color: #1A202C;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  font-style: normal;
+  position: absolute;
+  left: 44.8%;
+  margin-top: 20px;
+}
+
+.shopping-car {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+

@@ -1,0 +1,17 @@
+<div class="container">
+<div class="content_container">
+  <img class="book_cover_pages" src="<%= @book_info.image%>" alt="cover of book">
+  <div class="content-book-details">
+    <h2 class="details_book_title"> <%= @book_info.title%>: <%= @book_info.subtitle %></h2>
+    <p class="details_book_author"> by <%= @book_info.author%></p>
+    <%= @book_info.description%>
+    
+  </div>
+</div>
+
+<a  class ="shop_book_btn" href= "<%= @book_info.play_store %>"> 
+  Buy for <%= @book_info.price %><img class="shopping-car" src="/images/Vector.png" alt="icon of shopping cart">
+</a> 
+
+
+</div>
