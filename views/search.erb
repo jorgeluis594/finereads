@@ -1,28 +1,37 @@
 <section class="search">
     <p class="search-title">Find your next book to read</p>
-    <form action="/seach" class="search-form" method="POST">
-        <input type="text" name="searchbook" placeholder="Search a book..." class="search-book">
+    <form action="/search" class="search-form" method="get">
+        <input type="text" name="searchbook" placeholder="Search a book..." class="search-book" value="<%= value_search(search) %>">
         <button class="search-button"><i class="fas fa-search"></i></button>
     </form>
-
-    <div class="container-books">
-        <article class="book">
-            <div class="book-portada">
-                <img src="" alt="holas" class="book-img">
-            </div>
-            <a href="#" class="book-buttom">Want to Read</a>
-            <a href="#" class="book-read">Mark as read</a>
-        </article>
-        <article>dsa</article>
-        <article>sd</article>
-        <article>sd</article>
-        <article>sd</article>
-        <article>sd</article>
-        <article>sd</article>
-        <article>sd</article>
-        <article>sd</article>
-        <article>sd</article>
-        <article>sd</article>
-        <article>sd</article>
-    </div>
+    <% if books %>
+        <div class="container-books">
+            <% books.each do |book| %>
+                <article class="book">
+                    <div class="book-portada">
+                        <img src="<%= image?(book) %>" alt="<%= book["volumeInfo"]["title"] %>" class="book-img">
+                    </div>
+                    <form method="POST" action="/book/register/">
+                      <input value="<%= book["id"] %>" name="id_google" type="hidden">
+                      <input value="<%= want %>" name="status" type="hidden">
+                      <button class="book-buttom">Want to Read</button>
+                    </form>
+                    <form method="POST" action="/book/register/">
+                      <input value="<%= book["id"] %>" name="id_google" type="hidden">
+                      <input value="<%= read %>" name="status" type="hidden">
+                      <button class="book-read">Mark as read</button>
+                    </form>
+                    <!-- <a href="#" class="book-read">Mark as read</a> -->
+                </article>
+                <% end %>
+        </div>
+        <% if page == 1%>
+            <a class="search-more" href="/search?searchbook=<%= search %>&page=<%= page +1 %>">Load More</a>
+            <% end %>
+                <% else %>
+                    <div class="icon-nobook">
+                        <i class="fas fa-book-open fa-5x"></i>
+                    </div>
+                    <p class="search-nobook">Waiting for a query</p>
+                    <% end %>
 </section>
