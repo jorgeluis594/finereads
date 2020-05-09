@@ -18,7 +18,7 @@ class GoogleData
   end
 
   def image
-    @data["volumeInfo"]["imageLinks"]["smallThumbnail"]
+    @data["volumeInfo"]["imageLinks"].nil? ? "/images/noimage.png" : @data["volumeInfo"]["imageLinks"]["smallThumbnail"]
   end
 
   def subtitle
