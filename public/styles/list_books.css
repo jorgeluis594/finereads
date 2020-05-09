@@ -2,6 +2,7 @@
     border-collapse: collapse;
     width: 700px;
     margin: 0 auto;
+    table-layout: fixed;
 }
 
 .list-books-table caption {
@@ -24,10 +25,15 @@
     height: 105px;
 }
 
+.th-title {
+    width: 120px;
+}
+
 .list-book-title {
     font-size: 14px;
     line-height: 19px;
     color: #ED8936;
+    width: 120px;
 }
 
 .list-book-text {
