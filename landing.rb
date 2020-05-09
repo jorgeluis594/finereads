@@ -6,6 +6,6 @@ require 'sinatra/reloader'
 
 get '/' do
   @title = 'asd'
-  erb :landing, layout: :layout
+  erb :landing , layout: :layout
 end
 
