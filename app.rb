@@ -35,7 +35,7 @@ end
 get "/search" do
   book = params["searchbook"].split(' ').join('+') rescue nil
   params["page"] ? count = 2 : count = 1
-  book && book != "" ? books = BooksApi::search_book(book, count) : books = nil
+  book && book != "" ? books = GoogleData.search_book(book, count) : books = nil
   erb :search, locals: {books: books, search: book, page: count}
 end
 

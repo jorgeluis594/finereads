@@ -10,6 +10,7 @@ class Book < LazyRecord
     @id_google = id_google
     @status = status
     @notes = notes
+    @date = Time.now
   end
 end
 
