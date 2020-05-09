@@ -7,8 +7,7 @@ require_relative 'helpers/helpers_utils'
 helpers NoNil, Status, HtmlHelper
 
 get "/" do
-  @title = 'asd'
-  erb :landing, layout: :layout
+  erb :landing, layout: :landing_layout
 end
 
 get "/search" do
