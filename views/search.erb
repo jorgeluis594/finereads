@@ -8,9 +8,10 @@
         <div class="container-books">
             <% books.each do |book| %>
                 <article class="book">
-                    <div class="book-portada">
+                    <a href ="/books/<%= book["id"]%>"> <div class="book-portada">
                         <img src="<%= image?(book) %>" alt="<%= book["volumeInfo"]["title"] %>" class="book-img">
                     </div>
+                    </a>
                     <form method="POST" action="/book/register/">
                       <input value="<%= book["id"] %>" name="id_google" type="hidden">
                       <input value="<%= want %>" name="status" type="hidden">

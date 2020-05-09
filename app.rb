@@ -8,6 +8,10 @@ require_relative 'helpers/helpers_utils'
 
 helpers NoNil, Status, HtmlHelper
 
+get "/" do
+  @title = 'asd'
+  erb :landing, layout: :layout
+end
 
 get "/books/:book_id" do
   @book_info = GoogleData.new(params["book_id"])
@@ -45,3 +49,22 @@ post "/book/register/" do
   Book.new(id_goolge, status).save
   redirect url("/search")
 end
+
+get '/list-books/' do
+  books_data = Book.all.map do |book|
+    GoogleData.new('_eCcGXRAnvwC').clean_obj_list(book.status, 'May 06, 2020 (This is static)', book.id)
+  end
+  erb :list_books, layout: :layout, locals: {books: books_data}
+end
+
+use Rack::MethodOverride
+
+
+delete '/delete-book/:id' do
+  id = params[:id].to_i
+  Book.delete(id)
+  redirect '/list-books/'
+end
+
+
+
