@@ -3,12 +3,13 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require_relative 'model/googleapi'
+require_relative 'model/books'
 
 
 get '/list-books' do
-  book_data = Book.list
-  # google_api_obj = GoogleData(book_data)
-  locals = {img: ':v', title: '', author: '', status: '', date_added: ''}
-  erb :list_books, layout: :layout, locals: locals
+  books_data = Book.all.map do |book|
+    GoogleData.new('_eCcGXRAnvwC').clean_obj_list(book.status, 'May 06, 2020 (This is static)', book.id)
+  end
+  erb :list_books, layout: :layout, locals: {books: books_data}
 end
 

@@ -1,0 +1,53 @@
+.list-books-table {
+    border-collapse: collapse;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.list-books-table caption {
+    text-align: left;
+}
+
+.list-books-head tr th {
+    text-align: left;
+    border-bottom: 1px solid rgba(113, 128, 150, 0.8);;
+    padding: 12px;
+}
+
+.list-books-table tr td {
+    border-bottom: 1px solid rgba(113, 128, 150, 0.8);
+    padding: 12px;
+}
+
+.cover-img {
+    width: 70px;
+    height: 105px;
+}
+
+.list-book-title {
+    font-size: 14px;
+    line-height: 19px;
+    color: #ED8936;
+}
+
+.list-book-text {
+    font-size: 12px;
+    line-height: 16px;
+    color: #1A202C;
+}
+
+.edit-link {
+    color: #2F855A;
+    margin-right: 10px;
+}
+
+.delete-link {
+    color: #C53030;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.delete-form {
+    display: inline-block;
+}

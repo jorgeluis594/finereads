@@ -1,7 +1,6 @@
-<h1>My books</h1>
-
-<table>
-  <thead>
+<table class="list-books-table">
+  <caption><h1>My books</h1></caption>
+  <thead class="list-books-head">
   <tr>
     <th scope="col">Cover</th>
     <th scope="col">Title</th>
@@ -12,16 +11,21 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td><%= img %></td>
-    <td>asdasd</td>
-    <td>asdasd</td>
-    <td>asdasd</td>
-    <td>asdasd</td>
-    <td>
-      <a href="#"><span>Edit</span></a>
-      <a href="#"><span>Delete</span></a>
-    </td>
-  </tr>
+  <% books.each do |book| %>
+    <tr>
+      <td><img class="cover-img" src="<%= book[:img] %>"></td>
+      <td class="list-book-title"><%= book[:title] %></td>
+      <td class="list-book-text"><%= book[:author] %></td>
+      <td class="list-book-text"><%= book[:status] %></td>
+      <td class="list-book-text"><%= book[:date_added] %></td>
+      <td>
+        <a href="/books/<%= book[:obj_id] %>/edit" class="edit-link"><i class="fas fa-pen"></i></a>
+        <form class="delete-form" method="POST" action="/delete-book/<%= book[:obj_id] %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="delete-link"><i class="fas fa-trash"></i></button>
+        </form>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
 </table>

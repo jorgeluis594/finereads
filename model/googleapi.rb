@@ -36,8 +36,8 @@ class GoogleData
   def price
     @sales_info = @data.fetch("saleInfo", {})
     if sales_info["listPrice"].nil?
-      "Don't Know" 
-    else 
+      "Don't Know"
+    else
       @sales_info["listPrice"]["amount"].to_s << " " << @sales_info["listPrice"]["currencyCode"]
     end
   end
@@ -59,6 +59,11 @@ class GoogleData
   def self.api_book(book, index, count)
     book.is_a?(String) ? JSON.parse(HTTP.get("#{BOOKSURL}#{book}&startIndex=#{index}&maxResults=#{count}"))["items"] : raise
   end
+
+  def clean_obj_list(status, date_added, obj_id)
+    load_data
+    {img: image, title: title, author: author, status: status,
+     date_added: date_added, obj_id: obj_id}
+  end
+
 end
-
-
