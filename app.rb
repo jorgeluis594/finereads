@@ -20,20 +20,20 @@ get "/books/:book_id" do
 end
 
 get "/books/:book_id/edit" do
-  @book_info = GoogleData.new(params["book_id"])
+  info_saved_byidbook = Book.all.filter { |obj| obj.id == params["book_id"].to_i }
+  @book_info = GoogleData.new(info_saved_byidbook[0].id_google)
   @book_info.load_data
-  info_saved_byidbook = Book.all.filter { |obj| obj.id_google == params["book_id"] }
   @current_status = info_saved_byidbook[0].status
   @current_notes = info_saved_byidbook[0].notes
   erb :edit
 end
 
 post "/books/:book_id/edit" do
-  @book_save = Book.all.find { |obj| obj.id_google == params["book_id"] }
+  @book_save = Book.all.find { |obj| obj.id == params["book_id"].to_i }
   @book_save.notes = params["notes"]
   @book_save.status = params["status"]
   @book_save.save
-  redirect url("/search") #Colocar ruta a la lista de libros
+  redirect url("/list-books/") #Colocar ruta a la lista de libros
 end
 
 get "/search" do
@@ -47,12 +47,12 @@ post "/book/register/" do
   id_goolge = params["id_google"]
   status = params["status"]
   Book.new(id_goolge, status).save
-  redirect url("/search")
+  redirect url("/list-books/")
 end
 
 get '/list-books/' do
   books_data = Book.all.map do |book|
-    GoogleData.new('_eCcGXRAnvwC').clean_obj_list(book.status, 'May 06, 2020 (This is static)', book.id)
+    GoogleData.new(book.id_google).clean_obj_list(book.status, book.date, book.id)
   end
   erb :list_books, layout: :layout, locals: {books: books_data}
 end

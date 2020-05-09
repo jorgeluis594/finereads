@@ -17,6 +17,3 @@ get '/edit-book/' do
   @book_note = 'asdasdasd'
   erb :edit_book, layout: :layout
 end
-
-# 3 autores: a - b - c
-# a, b, c.

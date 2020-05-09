@@ -5,7 +5,7 @@ module StatusBook
   WANT = "Want to read"
 end
 class Book < LazyRecord
-  attr_accessor :id_google, :status, :notes
+  attr_accessor :id_google, :status, :notes, :date
   def initialize(id_google, status = StatusBook::WANT, notes = "")
     @id_google = id_google
     @status = status

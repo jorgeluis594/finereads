@@ -17,7 +17,7 @@
       <td class="list-book-title"><%= book[:title] %></td>
       <td class="list-book-text"><%= book[:author] %></td>
       <td class="list-book-text"><%= book[:status] %></td>
-      <td class="list-book-text"><%= book[:date_added] %></td>
+      <td class="list-book-text"><%= format_date(book[:date_added]) %></td>
       <td>
         <a href="/books/<%= book[:obj_id] %>/edit" class="edit-link"><i class="fas fa-pen"></i></a>
         <form class="delete-form" method="POST" action="/delete-book/<%= book[:obj_id] %>">

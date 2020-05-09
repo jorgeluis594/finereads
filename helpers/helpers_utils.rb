@@ -29,4 +29,7 @@ module HtmlHelper
     selected = value == current_value
     "<option value=\"#{value}\" #{"selected" if selected}>#{label}</option>"
   end
+  def format_date(date)
+    date ? date.strftime("%B %d, %Y") : "No date"
+  end
 end

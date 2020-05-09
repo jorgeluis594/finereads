@@ -1,7 +1,7 @@
 <section class="search">
     <p class="search-title">Find your next book to read</p>
     <form action="/search" class="search-form" method="get">
-        <input type="text" name="searchbook" placeholder="Search a book..." class="search-book" value="<%= value_search(search) %>">
+        <input type="text" name="searchbook" placeholder="Search a book..." class="search-book" value="<%= value_search(search) %>" autofocus>
         <button class="search-button"><i class="fas fa-search"></i></button>
     </form>
     <% if books %>
