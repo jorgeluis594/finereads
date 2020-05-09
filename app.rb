@@ -1,7 +1,5 @@
 require "sinatra"
 require "sinatra/reloader" if development?
-require "lazyrecord"
-require "http"
 require_relative "model/books"
 require_relative 'model/googleapi'
 require_relative 'helpers/helpers_utils'
@@ -11,6 +9,20 @@ helpers NoNil, Status, HtmlHelper
 get "/" do
   @title = 'asd'
   erb :landing, layout: :layout
+end
+
+get "/search" do
+  book = params["searchbook"].split(' ').join('+') rescue nil
+  params["page"] ? count = 2 : count = 1
+  book && book != "" ? books = GoogleData.search_book(book, count) : books = nil
+  erb :search, locals: {books: books, search: book, page: count}
+end
+
+post "/book/register/" do
+  id_goolge = params["id_google"]
+  status = params["status"]
+  Book.new(id_goolge, status).save
+  redirect url("/list-books/")
 end
 
 get "/books/:book_id" do
@@ -29,24 +41,10 @@ get "/books/:book_id/edit" do
 end
 
 post "/books/:book_id/edit" do
-  @book_save = Book.all.find { |obj| obj.id == params["book_id"].to_i }
-  @book_save.notes = params["notes"]
-  @book_save.status = params["status"]
-  @book_save.save
-  redirect url("/list-books/") #Colocar ruta a la lista de libros
-end
-
-get "/search" do
-  book = params["searchbook"].split(' ').join('+') rescue nil
-  params["page"] ? count = 2 : count = 1
-  book && book != "" ? books = GoogleData.search_book(book, count) : books = nil
-  erb :search, locals: {books: books, search: book, page: count}
-end
-
-post "/book/register/" do
-  id_goolge = params["id_google"]
-  status = params["status"]
-  Book.new(id_goolge, status).save
+  book_save = Book.all.find { |obj| obj.id == params["book_id"].to_i }
+  book_save.notes = params["notes"]
+  book_save.status = params["status"]
+  book_save.save
   redirect url("/list-books/")
 end
 

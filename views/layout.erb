@@ -20,7 +20,10 @@
   <% if request.path_info !="/" %>
   <%= erb :navbar%>
   <%end%>
-  <%= yield%>  
+  <%= yield%>
+  <% if request.path_info !="/" %>
+    <%= erb :footer%>
+  <%end%>
   </div>
 
 </body>
