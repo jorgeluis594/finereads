@@ -8,6 +8,10 @@ require_relative 'helpers/helpers_utils'
 
 helpers NoNil, Status, HtmlHelper
 
+get "/" do
+  @title = 'asd'
+  erb :landing , layout: :layout
+end
 
 get "/books/:book_id" do
   @book_info = GoogleData.new(params["book_id"])
@@ -35,7 +39,7 @@ end
 get "/search" do
   book = params["searchbook"].split(' ').join('+') rescue nil
   params["page"] ? count = 2 : count = 1
-  book && book != "" ? books = BooksApi::search_book(book, count) : books = nil
+  book && book != "" ? books = GoogleData.search_book(book, count) : books = nil
   erb :search, locals: {books: books, search: book, page: count}
 end
 
@@ -45,3 +49,4 @@ post "/book/register/" do
   Book.new(id_goolge, status).save
   redirect url("/search")
 end
+
